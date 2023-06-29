@@ -22,7 +22,7 @@ const RecipePage = () => {
 
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to delete this recipe?')) {
-      dispatch(deleteRecipe(recipe.id));
+      dispatch(deleteRecipe(recipe.recipeName));
       navigate('/');
     }
   };

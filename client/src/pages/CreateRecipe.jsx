@@ -9,7 +9,7 @@ const CreateRecipe = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const recipes = useSelector((state) => state.recipe.value);
+  // const recipes = useSelector((state) => state.recipe.value);
 
   const [nameForm, setNameForm] = useState({
     recipeName: '',
@@ -17,7 +17,7 @@ const CreateRecipe = () => {
     ingredients: [],
     description: '',
   });
-
+ 
   useEffect(() => {
     if (location.state && location.state.recipe) {
       const { recipe } = location.state;
@@ -63,7 +63,8 @@ const CreateRecipe = () => {
       if (location.state && location.state.recipe) {
         // Update existing recipe
         const existingRecipe = location.state.recipe;
-        dispatch(updateRecipe({ id: existingRecipe.id, recipe }));
+        // console.log(existingRecipe.id)
+        dispatch(updateRecipe({ id: existingRecipe.recipeName, recipe }));
       } else {
         // Add new recipe
         dispatch(addRecipe(recipe));

@@ -11,14 +11,14 @@ const recipeSlice = createSlice({
       },
       updateRecipe: (state, action) => {
         const { id, recipe } = action.payload;
-        const index = state.value.findIndex((r) => r.id === id);
+        const index = state.value.findIndex((r) => r.recipeName === id);
         if (index !== -1) {
           state.value[index] = { ...state.value[index], ...recipe };
         }
       },
       deleteRecipe: (state, action) => {
         const id = action.payload;
-        state.value = state.value.filter((recipe) => recipe.id !== id);
+        state.value = state.value.filter((recipe) => recipe.recipeName !== id);
       },
     },
   });
